@@ -1,23 +1,87 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import Home from "./components/Home";
+import Login from "./components/Login";
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Navigate,
+} from "react-router-dom";
+import { AuthProvider, useAuth } from "./context/AuthContext";
+import New from "./components/Nuevo";
+import Prueba from "./components/Prueba";
+import CreateUser from "./components/CreateUser";
+import DrawerAppBar from "./components/AppBar";
+
+const PrivateRoute = ({ children }) => {
+  const { token } = useAuth();
+  return token ? children : <Navigate to="/login" />;
+};
+
+const PublicRoute = ({ children }) => {
+  const { token } = useAuth();
+  return token ? <Navigate to="/" /> : children;
+};
+
+const PrivateHeader = ({ children }) => {
+  const { token } = useAuth();
+  return token ? children : <></>;
+};
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Router>
+        <AuthProvider>
+          <PrivateHeader>
+            <DrawerAppBar />
+          </PrivateHeader>
+          <div className="App">
+            <Routes>
+              <Route
+                path="/"
+                element={
+                  <PrivateRoute>
+                    <Home />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/new"
+                element={
+                  <PrivateRoute>
+                    <New />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/createUser"
+                element={
+                  <PrivateRoute>
+                    <CreateUser />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/prueba"
+                element={
+                  <PrivateRoute>
+                    <Prueba />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/login"
+                element={
+                  <PublicRoute>
+                    <Login />
+                  </PublicRoute>
+                }
+              />
+            </Routes>
+          </div>
+        </AuthProvider>
+      </Router>
     </div>
   );
 }
