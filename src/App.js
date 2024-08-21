@@ -12,6 +12,7 @@ import New from "./components/Nuevo";
 import Prueba from "./components/Prueba";
 import CreateUser from "./components/CreateUser";
 import DrawerAppBar from "./components/AppBar";
+import UpdateUser from "./components/UpdateUser";
 
 const PrivateRoute = ({ children }) => {
   const { token } = useAuth();
@@ -59,6 +60,14 @@ function App() {
                 element={
                   <PrivateRoute>
                     <CreateUser />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/updateUser/:id"
+                element={
+                  <PrivateRoute>
+                    <UpdateUser />
                   </PrivateRoute>
                 }
               />

@@ -1,6 +1,7 @@
 import { jwtDecode } from "jwt-decode";
 import React, { createContext, useState, useContext, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { Login } from "../actions/users";
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
@@ -11,15 +12,11 @@ export const AuthProvider = ({ children }) => {
 
   const login = async (username, password) => {
     try {
-      const response = await fetch("http://localhost:5000/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username, password }),
-      });
-      if (response.ok) {
-        const data = await response.json();
-        setToken(data.token);
-        localStorage.setItem("token", data.token);
+      const response = await Login(username, password);
+      debugger;
+      if (response) {
+        setToken(response.token);
+        localStorage.setItem("token", response.token);
         localStorage.setItem("user", username);
         setUser(username);
         navigate("/");

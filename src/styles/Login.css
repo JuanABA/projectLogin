@@ -1,57 +1,63 @@
-.main-container{
-    width: 400px;
-    height: 450px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color:  #000000;
-    border-radius: 23px;
-    position: absolute;
-    border: 2px solid white;
-    box-shadow:  10px 13px 20px 10px rgb(0 0 0 / 9%); 
+.main-container {
+  width: 400px;
+  height: 450px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #000000;
+  border-radius: 23px;
+  position: absolute;
+  border: 2px solid white;
+  box-shadow: 10px 13px 20px 10px rgb(0 0 0 / 9%);
 }
 
 .main-form {
-    text-align: center;
+  text-align: center;
 }
 
-input{
-    margin-bottom: 20px;
-    height: 38px;
-    width: 25vh;
-    background-color: #5768a3;
-    color:white;
-    font-size: 17px;
-    border: 1px solid #5768a3;
+input {
+  margin-bottom: 20px;
+  height: 38px;
+  width: 25vh;
+  background-color: #5768a3;
+  color: white;
+  font-size: 17px;
+  border: 1px solid #5768a3;
 }
 
 .image {
-    width: 100px;
-    height: 100px;
-    margin-bottom: 70px;
+  width: 100px;
+  height: 100px;
+  margin-bottom: 70px;
 }
 
-input::placeholder{
-    color: white;
-    opacity: 1; /* para asegurar que el color se aplique completamente */
-    font-style: italic;
+input::placeholder {
+  color: white;
+  opacity: 1; /* para asegurar que el color se aplique completamente */
+  font-style: italic;
 }
 
-.divIcon{
-    display: flex;
-    justify-content: left;
+.divIcon {
+  display: flex;
+  justify-content: left;
 }
 
-.icons{
-    font-size: 2.2em;
-    padding: 9px;
-    background-color: white;
+.icons {
+  font-size: 2.2em;
+  padding: 9px;
+  background-color: white;
 }
 
 .button {
-    width: 18vh;
-    border-radius: 10px;
-    background-color: white !important;
-    color: #000000 !important;
+  width: 18vh;
+  border-radius: 10px;
+  background-color: white !important;
+  color: #000000 !important;
+}
+
+.error {
+  color: red; /* Change this color as per your preference */
+  font-size: 14px;
+  margin-top: 5px;
 }

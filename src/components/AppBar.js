@@ -14,13 +14,20 @@ import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function DrawerAppBar(props) {
   const { logout } = useAuth();
+  const navigate = useNavigate();
   const drawerWidth = 240;
   const navItems = [
-    { name: "Home", function: () => {} },
-    { name: "About", function: () => {} },
+    {
+      name: "Home",
+      function: () => {
+        navigate("/");
+      },
+    },
+
     { name: "Logout", function: () => logout() },
   ];
   const { window } = props;
@@ -33,7 +40,7 @@ export default function DrawerAppBar(props) {
   const drawer = (
     <Box onClick={handleDrawerToggle} sx={{ textAlign: "center" }}>
       <Typography variant="h6" sx={{ my: 2 }}>
-        MUI
+        App
       </Typography>
       <Divider />
       <List>
@@ -73,7 +80,7 @@ export default function DrawerAppBar(props) {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            App
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
             {navItems.map((item) => (
@@ -108,9 +115,6 @@ export default function DrawerAppBar(props) {
           {drawer}
         </Drawer>
       </nav>
-      <Box component="main" sx={{ p: 3 }}>
-        <Toolbar />
-      </Box>
     </Box>
   );
 }
