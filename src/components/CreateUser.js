@@ -53,7 +53,7 @@ const CreateUser = () => {
           />
           <TextField
             sx={{ marginBottom: "10px" }}
-            {...register("password", {
+            {...register("contraseña", {
               required: "Password is required",
               minLength: {
                 value: 6,

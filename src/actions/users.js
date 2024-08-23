@@ -46,6 +46,19 @@ export const createUser = async (userData) => {
   }
 };
 
+export const forgotPassword = async (userData) => {
+  try {
+    const response = await axios.post(apiRoutes.forgotPassword, userData, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    return response.data;
+  } catch (error) {
+    console.error("Error getting email:", error);
+  }
+};
+
 export const fetchUserById = async (id) => {
   const token = localStorage.getItem("token");
   try {

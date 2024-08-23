@@ -13,6 +13,8 @@ import Prueba from "./components/Prueba";
 import CreateUser from "./components/CreateUser";
 import DrawerAppBar from "./components/AppBar";
 import UpdateUser from "./components/UpdateUser";
+import ForgotPassword from "./components/ForgotPassword";
+// import ResetPassword from "./components/ResetPassword";
 
 const PrivateRoute = ({ children }) => {
   const { token } = useAuth();
@@ -87,6 +89,22 @@ function App() {
                   </PublicRoute>
                 }
               />
+              <Route
+                path="/Forgotpassword"
+                element={
+                  <PublicRoute>
+                    <ForgotPassword />
+                  </PublicRoute>
+                }
+              />
+              {/* <Route
+                path="/reset-password/:id/:token"
+                element={
+                  <PublicRoute>
+                    <ResetPassword />
+                  </PublicRoute>
+                }
+              /> */}
             </Routes>
           </div>
         </AuthProvider>

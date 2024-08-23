@@ -13,7 +13,6 @@ export const AuthProvider = ({ children }) => {
   const login = async (username, password) => {
     try {
       const response = await Login(username, password);
-      debugger;
       if (response) {
         setToken(response.token);
         localStorage.setItem("token", response.token);

@@ -74,6 +74,9 @@ const Login = () => {
             Ingresar
           </Button>
         </form>
+        <a style={{ marginTop: "15px", color: "white" }} href="ForgotPassword">
+          ¿olvidaste tu contraseña?
+        </a>
       </div>
     </div>
   );
