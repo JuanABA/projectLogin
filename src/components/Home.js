@@ -16,6 +16,7 @@ const UsersList = () => {
   const [users, setUsers] = useState([]);
   const [open, setOpen] = useState(false);
   const [rowToDelete, setRowToDelete] = useState(-1);
+  // const [load, setLoad] = useState(false);
   const navigate = useNavigate();
 
   const getUsers = async () => {
@@ -23,9 +24,19 @@ const UsersList = () => {
     setUsers(users);
   };
 
+  // const getUsers = async () => {
+  //   setLoad(true);
+  //   const users = await fetchUsers();
+  //   setUsers(users);
+  //   setLoad(false);
+  // };
+
   useEffect(() => {
     getUsers();
   }, []);
+
+  //si quiero poner el loading hago una validación que diga si loading es true que traiga la ruedita sino
+  //que muestre el listado de usuarios
 
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
